@@ -11,5 +11,5 @@
 ^+#!S::Shutdown, 1  ; Shutdown
 ^+#!R::Shutdown, 6  ; Restart
 ^+#!H::DllCall("PowrProf\SetSuspendState", "int", 0, "int", 0, "int", 0) ; Sleep
-^+#!H::DllCall("PowrProf\SetSuspendState", "int", 1, "int", 0, "int", 0) ; Hibernate
+; ^+#!H::DllCall("PowrProf\SetSuspendState", "int", 1, "int", 0, "int", 0) ; Hibernate
 Return
