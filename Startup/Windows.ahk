@@ -9,12 +9,15 @@ SetWorkingDir, %A_ScriptDir%
 ; ` is an escape key. We want to use the ` key so we escape it using ``
 Hotkey, !``, OnTop
 Hotkey, #``, TransWindow
+Hotkey, #m , MinWindow
 Return
 
+; Keep active window on top.
 OnTop:
 Winset, Alwaysontop, , A
 Return
 
+; Make the active window transparent
 TransWindow:
 WinGet, Transparent, Transparent, A
 
@@ -46,4 +49,11 @@ if (!Transparent) {
 		}
 	}
 } Transparent := ""
+Return
+
+MinWindow:
+; Prevent from minimizing the start button and explorer
+if WinActive("ahk_class ClassicShell.CMenuContainer")
+or WinActive("ahk_exe explorer.exe") Return
+WinMinimize, A
 Return
